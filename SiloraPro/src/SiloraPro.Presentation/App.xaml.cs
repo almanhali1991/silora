@@ -6,7 +6,7 @@ namespace SiloraPro.Presentation;
 /// <summary>
 /// فئة التطبيق الرئيسية - نقطة الدخول
 /// </summary>
-public partial class App : Application
+public partial class App : System.Windows.Application
 {
     private readonly IHost _host;
 

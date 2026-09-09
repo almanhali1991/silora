@@ -1,4 +1,5 @@
 using System.Windows.Controls;
+using SiloraPro.Application.Interfaces;
 
 namespace SiloraPro.Presentation.ViewModels;
 
