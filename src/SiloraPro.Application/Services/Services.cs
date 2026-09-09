@@ -1,5 +1,6 @@
 using SiloraPro.Application.Interfaces;
 using SiloraPro.Domain.Entities;
+using SiloraPro.Infrastructure.Repositories;
 
 namespace SiloraPro.Application.Services;
 
