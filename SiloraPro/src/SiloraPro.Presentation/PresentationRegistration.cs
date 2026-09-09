@@ -12,10 +12,8 @@ public static class PresentationRegistration
     public static IServiceCollection AddPresentationServices(this IServiceCollection services)
     {
         // تسجيل ViewModels
-        services.AddSingleton<MainViewModel>();
+        services.AddSingleton<ViewModelBase>();
         services.AddTransient<CustomerViewModel>();
-        services.AddTransient<ProductViewModel>();
-        services.AddTransient<OrderViewModel>();
 
         // تسجيل النوافذ
         services.AddTransient<MainWindow>();
