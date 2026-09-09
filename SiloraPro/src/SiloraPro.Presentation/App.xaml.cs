@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Configuration;
 using System.Windows;
 
 namespace SiloraPro.Presentation;
@@ -16,7 +17,10 @@ public partial class App : System.Windows.Application
             .ConfigureServices((context, services) =>
             {
                 // تسجيل الخدمات من الطبقات المختلفة
-                services.AddInfrastructure(context.Configuration);
+                var connectionString = context.Configuration.GetConnectionString("DefaultConnection") 
+                    ?? "Data Source=silorapro.db";
+                
+                services.AddInfrastructure(connectionString);
                 services.AddApplicationServices();
                 services.AddPresentationServices();
             })
