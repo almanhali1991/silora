@@ -3,23 +3,22 @@ using SiloraPro.Infrastructure.Data;
 using SiloraPro.Infrastructure.Repositories;
 using SiloraPro.Domain.Entities;
 using SiloraPro.Application.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace SiloraPro.Infrastructure;
 
 public static class InfrastructureServiceRegistration
 {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection services)
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, string connectionString = "Data Source=silorapro.db")
     {
         // تسجيل سياق قاعدة البيانات
-        services.AddDbContext<AppDbContext>();
+        services.AddDbContext<SiloraProDbContext>(options =>
+            options.UseSqlite(connectionString));
 
         // تسجيل المستودعات (Repositories)
-        services.AddScoped<IRepository<Customer>, Repository<Customer>>();
-        services.AddScoped<IRepository<Product>, Repository<Product>>();
-        services.AddScoped<IRepository<Order>, Repository<Order>>();
-        
-        // تسجيل واجهات الخدمات إذا كانت موجودة في البنية التحتية (عادة تكون في Application)
-        // لكن سنتركها للتطبيق لتجنب التداخل
+        services.AddScoped<ICustomerRepository, CustomerRepository>();
+        services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<IOrderRepository, OrderRepository>();
         
         return services;
     }
