@@ -1,0 +1,206 @@
+<Window x:Class="SiloraPro.Presentation.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="سيلورا برو - نظام إدارة متكامل" 
+        Height="700" 
+        Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BackgroundBrush}"
+        FlowDirection="RightToLeft">
+
+    <Grid>
+        <!-- الشريط الجانبي -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- القائمة الجانبية -->
+        <Border Grid.Column="0" 
+                Background="{StaticResource SurfaceBrush}" 
+                BorderBrush="{StaticResource BorderBrush}" 
+                BorderThickness="0,0,1,0">
+            <StackPanel Margin="20">
+                <!-- الشعار -->
+                <TextBlock Text="🏢 سيلورا برو" 
+                          Style="{StaticResource ModernHeading}"
+                          FontSize="20"
+                          Margin="0,0,0,30"/>
+
+                <!-- أزرار التنقل -->
+                <Button Content="📊 لوحة التحكم" 
+                       Style="{StaticResource ModernButton}"
+                       Margin="0,0,0,10"
+                       HorizontalAlignment="Stretch"/>
+                
+                <Button Content="👥 العملاء" 
+                       Style="{StaticResource ModernButton}"
+                       Margin="0,0,0,10"
+                       HorizontalAlignment="Stretch"
+                       Background="Transparent"
+                       Foreground="{StaticResource TextBrush}"/>
+                
+                <Button Content="📦 المنتجات" 
+                       Style="{StaticResource ModernButton}"
+                       Margin="0,0,0,10"
+                       HorizontalAlignment="Stretch"
+                       Background="Transparent"
+                       Foreground="{StaticResource TextBrush}"/>
+                
+                <Button Content="🛒 الطلبات" 
+                       Style="{StaticResource ModernButton}"
+                       Margin="0,0,0,10"
+                       HorizontalAlignment="Stretch"
+                       Background="Transparent"
+                       Foreground="{StaticResource TextBrush}"/>
+                
+                <Button Content="📄 التقارير" 
+                       Style="{StaticResource ModernButton}"
+                       Margin="0,0,0,10"
+                       HorizontalAlignment="Stretch"
+                       Background="Transparent"
+                       Foreground="{StaticResource TextBrush}"/>
+
+                <Separator Margin="0,20" Background="{StaticResource BorderBrush}"/>
+
+                <Button Content="⚙️ الإعدادات" 
+                       Style="{StaticResource ModernButton}"
+                       Margin="0,0,0,10"
+                       HorizontalAlignment="Stretch"
+                       Background="Transparent"
+                       Foreground="{StaticResource TextBrush}"/>
+            </StackPanel>
+        </Border>
+
+        <!-- منطقة المحتوى الرئيسي -->
+        <Grid Grid.Column="1" Margin="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- العنوان -->
+            <StackPanel Grid.Row="0" Margin="0,0,0,30">
+                <TextBlock Text="لوحة التحكم" 
+                          Style="{StaticResource ModernHeading}"
+                          FontSize="28"/>
+                <TextBlock Text="نظرة عامة على النظام والإحصائيات" 
+                          Style="{StaticResource ModernSubheading}"/>
+            </StackPanel>
+
+            <!-- بطاقات الإحصائيات -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- بطاقة العملاء -->
+                <Border Grid.Column="0" Grid.Row="0"
+                        Background="{StaticResource SurfaceBrush}"
+                        CornerRadius="12"
+                        Padding="20"
+                        Margin="0,0,15,15"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1">
+                    <StackPanel>
+                        <TextBlock Text="👥" FontSize="32" Margin="0,0,0,10"/>
+                        <TextBlock Text="إجمالي العملاء" 
+                                  Style="{StaticResource ModernSubheading}"
+                                  FontSize="14"/>
+                        <TextBlock Text="0" 
+                                  FontSize="28" 
+                                  FontWeight="Bold"
+                                  Foreground="{StaticResource PrimaryBrush}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- بطاقة المنتجات -->
+                <Border Grid.Column="1" Grid.Row="0"
+                        Background="{StaticResource SurfaceBrush}"
+                        CornerRadius="12"
+                        Padding="20"
+                        Margin="0,0,15,15"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1">
+                    <StackPanel>
+                        <TextBlock Text="📦" FontSize="32" Margin="0,0,0,10"/>
+                        <TextBlock Text="إجمالي المنتجات" 
+                                  Style="{StaticResource ModernSubheading}"
+                                  FontSize="14"/>
+                        <TextBlock Text="0" 
+                                  FontSize="28" 
+                                  FontWeight="Bold"
+                                  Foreground="{StaticResource AccentBrush}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- بطاقة الطلبات -->
+                <Border Grid.Column="2" Grid.Row="0"
+                        Background="{StaticResource SurfaceBrush}"
+                        CornerRadius="12"
+                        Padding="20"
+                        Margin="0,0,15,15"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1">
+                    <StackPanel>
+                        <TextBlock Text="🛒" FontSize="32" Margin="0,0,0,10"/>
+                        <TextBlock Text="إجمالي الطلبات" 
+                                  Style="{StaticResource ModernSubheading}"
+                                  FontSize="14"/>
+                        <TextBlock Text="0" 
+                                  FontSize="28" 
+                                  FontWeight="Bold"
+                                  Foreground="{StaticResource WarningBrush}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- بطاقة الإيرادات -->
+                <Border Grid.Column="3" Grid.Row="0"
+                        Background="{StaticResource SurfaceBrush}"
+                        CornerRadius="12"
+                        Padding="20"
+                        Margin="0,0,0,15"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1">
+                    <StackPanel>
+                        <TextBlock Text="💰" FontSize="32" Margin="0,0,0,10"/>
+                        <TextBlock Text="الإيرادات" 
+                                  Style="{StaticResource ModernSubheading}"
+                                  FontSize="14"/>
+                        <TextBlock Text="0 ر.س" 
+                                  FontSize="28" 
+                                  FontWeight="Bold"
+                                  Foreground="{StaticResource PrimaryBrush}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- منطقة المحتوى الإضافي -->
+                <Border Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1"
+                        Background="{StaticResource SurfaceBrush}"
+                        CornerRadius="12"
+                        Padding="20"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1">
+                    <StackPanel>
+                        <TextBlock Text="آخر النشاطات" 
+                                  Style="{StaticResource ModernHeading}"
+                                  FontSize="18"/>
+                        <TextBlock Text="لا توجد نشاطات حديثة" 
+                                  Foreground="{StaticResource SecondaryTextBrush}"
+                                  Margin="0,10,0,0"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
