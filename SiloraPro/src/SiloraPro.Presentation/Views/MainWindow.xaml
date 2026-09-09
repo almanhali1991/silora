@@ -1,0 +1,42 @@
+<Window x:Class="SiloraPro.Presentation.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="نظام سيلورا برو" Height="700" Width="1000"
+        WindowStartupLocation="CenterScreen"
+        FlowDirection="RightToLeft"
+        Background="{StaticResource BackgroundBrush}">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- الشريط العلوي -->
+        <Border Grid.Row="0" Background="{StaticResource PrimaryBrush}" Padding="20">
+            <TextBlock Text="نظام إدارة سيلورا برو" 
+                       FontSize="24" 
+                       FontWeight="Bold" 
+                       Foreground="White"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <!-- المحتوى الرئيسي -->
+        <TabControl Grid.Row="1" Margin="20" Background="{StaticResource SurfaceBrush}">
+            <TabItem Header="لوحة التحكم">
+                <Grid Margin="20">
+                    <StackPanel>
+                        <TextBlock Text="مرحباً بك في نظام سيلورا برو" FontSize="20" Margin="0,0,0,20"/>
+                        <TextBlock Text="اختر من القائمة الجانبية للبدء" FontSize="16" Foreground="{StaticResource TextSecondaryBrush}"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            
+            <TabItem Header="العملاء">
+                <Grid Margin="20">
+                    <ContentControl Content="{Binding CurrentView}"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
